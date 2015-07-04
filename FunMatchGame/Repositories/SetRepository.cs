@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using FunMatchGame.Models;
@@ -35,8 +34,11 @@ namespace FunMatchGame.Repositories
 				dynamic items = JsonConvert.DeserializeObject(json);
 				var cards = new List<Card>();
 				foreach (var item in items)
+				{
+					if (string.IsNullOrWhiteSpace(item["Primary image"].ToString()))
+						continue;
 					cards.Add(new Card(Guid.NewGuid(), item["Title"].ToString(), item["Primary image"].ToString(), item["URL"].ToString(), item["Primary image caption"].ToString()));
-
+				}
 				return Task.FromResult<IList<Card>>(cards);
 			}
 		}
