@@ -14,7 +14,7 @@ namespace FunMatchGame.Interfaces
 			_setRepository = setRepository;
 		}
 
-		public Task<IEnumerable<Card>> GetCardsBySetIdAsync(Sets setId)
+		public Task<IList<Card>> GetCardsBySetIdAsync(Sets setId)
 		{
 			return _setRepository.GetCardsBySetIdAsync(setId);
 		}

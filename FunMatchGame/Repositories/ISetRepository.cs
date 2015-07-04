@@ -6,6 +6,6 @@ namespace FunMatchGame.Repositories
 {
 	public interface ISetRepository
 	{
-		Task<IEnumerable<Card>> GetCardsBySetIdAsync(Sets setId);
+		Task<IList<Card>> GetCardsBySetIdAsync(Sets setId);
 	}
 }

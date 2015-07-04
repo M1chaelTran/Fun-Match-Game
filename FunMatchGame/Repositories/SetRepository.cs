@@ -11,7 +11,7 @@ namespace FunMatchGame.Repositories
 {
 	public class SetRepository : ISetRepository
 	{
-		public Task<IEnumerable<Card>> GetCardsBySetIdAsync(Sets setId)
+		public Task<IList<Card>> GetCardsBySetIdAsync(Sets setId)
 		{
 			switch (setId)
 			{
@@ -19,7 +19,7 @@ namespace FunMatchGame.Repositories
 					return GetCardsAsync(GetDataFile("Localphotostories2009-2014-JSON.json"));
 			}
 
-			return Task.FromResult(new List<Card>().AsEnumerable());
+			return Task.FromResult<IList<Card>>(new List<Card>());
 		}
 
 		private string GetDataFile(string dataFileName)
@@ -27,7 +27,7 @@ namespace FunMatchGame.Repositories
 			return Path.Combine(HttpRuntime.AppDomainAppPath, "Data", dataFileName);
 		}
 
-		private Task<IEnumerable<Card>> GetCardsAsync(string jsonFileName)
+		private Task<IList<Card>> GetCardsAsync(string jsonFileName)
 		{
 			using (var r = new StreamReader(jsonFileName))
 			{
@@ -37,7 +37,7 @@ namespace FunMatchGame.Repositories
 				foreach (var item in items)
 					cards.Add(new Card(Guid.NewGuid(), item["Title"].ToString(), item["Primary image"].ToString(), item["URL"].ToString(), item["Primary image caption"].ToString()));
 
-				return Task.FromResult(cards.AsEnumerable());
+				return Task.FromResult<IList<Card>>(cards);
 			}
 		}
 	}

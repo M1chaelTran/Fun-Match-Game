@@ -6,6 +6,6 @@ namespace FunMatchGame.Interfaces
 {
 	public interface ISetService
 	{
-		Task<IEnumerable<Card>> GetCardsBySetIdAsync(Sets setId);
+		Task<IList<Card>> GetCardsBySetIdAsync(Sets setId);
 	}
 }
