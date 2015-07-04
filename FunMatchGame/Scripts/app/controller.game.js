@@ -1,5 +1,5 @@
 ﻿angular.module('controller').controller('game', [
-    '$scope', '$timeout', function($scope, $timeout) {
+    '$scope', '$http', function ($scope, $http) {
 
         function getCards(size) {
 
@@ -54,19 +54,9 @@
                 $scope.second = null;
             }
         };
-        $scope.decks = [
-            [
-                { id: '1', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/1" },
-                { id: '2', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/2" },
-                { id: '3', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/3" },
-                { id: '4', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/4" }
-            ],
-            [
-                { id: '1', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/1" },
-                { id: '2', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/2" },
-                { id: '3', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/3" },
-                { id: '4', 'title': 'A nice day!', src: "http://lorempixel.com/400/400/nature/4" }
-            ]
-        ];
+
+        $http.get('api/games/sets/1/cards/4').success(function(cards) {
+            $scope.decks = [_.shuffle(cards), _.shuffle(angular.copy(cards))];
+        });
     }
 ]);

@@ -22,8 +22,8 @@
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
 
-            /*bundles.Add(new ScriptBundle("~/bundles/lib").Include(
-                "~/Scripts/angular-deckgrid.js"));*/
+            bundles.Add(new ScriptBundle("~/bundles/lib").Include(
+                "~/Scripts/underscore.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/app.js",

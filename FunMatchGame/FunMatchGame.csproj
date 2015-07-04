@@ -1202,6 +1202,8 @@
     <Content Include="Scripts\respond.min.js">
       <DependentUpon>respond.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1219,6 +1221,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Scripts\underscore.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
