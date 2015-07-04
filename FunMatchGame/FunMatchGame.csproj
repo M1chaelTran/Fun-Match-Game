@@ -232,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\back.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -343,6 +344,8 @@
       <DependentUpon>angular.js</DependentUpon>
     </Content>
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controller.js" />
+    <Content Include="Scripts\app\controller.game.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map">
       <DependentUpon>angular.js</DependentUpon>

@@ -1,17 +1,75 @@
 ﻿body {
-    padding-top: 50px;
     padding-bottom: 20px;
+    padding-top: 50px;
 }
 
 /* Set padding to keep content from hitting the edges */
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
-textarea {
-    max-width: 280px;
+textarea { max-width: 280px; }
+
+.deck {
+    -moz-perspective: 800px;
+    -ms-perspective: 800px;
+    -o-perspective: 800px;
+    -webkit-perspective: 800px;
+    height: 200px;
+    perspective: 800px;
+    position: relative;
+    width: 165px;
+    margin: 10px;
+}
+
+.card {
+    -moz-transform-style: preserve-3d;
+    -moz-transition: -moz-transform 1s;
+    -ms-transform-style: preserve-3d;
+    -ms-transition: -ms-transform 1s;
+    -o-transform-style: preserve-3d;
+    -o-transition: -o-transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    width: 100%;
+}
+
+.card.flipped {
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.card img {
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+
+
+.card .back {
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    background: blue;
+    transform: rotateY(180deg);
 }

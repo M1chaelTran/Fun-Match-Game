@@ -3,5 +3,20 @@
 @{
     ViewBag.Title = "Play";
 }
-
-<h2>Play</h2>
+<section data-ng-controller="game">
+    <table>
+        <tbody>
+            <tr data-ng-repeat="deck in decks" class="deck">
+                <td data-ng-repeat="card in deck" ng-click="try(card)">
+                    <div class="deck">
+                        <div class="card" data-ng-class="{flipped: card.flipped}">
+                            <img class="front img-thumbnail" src="~/Content/back.png">
+                            <img class="back img-thumbnail" data-ng-src="{{card.src}}">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</section>

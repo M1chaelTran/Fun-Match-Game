@@ -34,9 +34,11 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/angularjs")
+    @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/lib")*@
+    @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)
 </body>
 </html>

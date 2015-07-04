@@ -1,7 +1,12 @@
-﻿'use strict';
+﻿(function () {
+    'use strict';
 
-angular.module('fun-match-game', []);
+    var app = 'funmatchgame';
+    var dependencies = ['controller'];
 
-angular.element(document).ready(function () {
-    angular.bootstrap(document, ['fun-match-game']);
-});
+    angular.module(app, dependencies);
+
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, [app]);
+    });
+})();
