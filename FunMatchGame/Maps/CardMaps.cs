@@ -1,5 +1,7 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using FunMatchGame.Models;
+using FunMatchGame.Repositories;
 using FunMatchGame.ViewModels;
 
 namespace FunMatchGame.Maps
