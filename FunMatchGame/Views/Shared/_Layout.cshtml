@@ -20,8 +20,23 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li>@Html.ActionLink("New Game", "Index", "Game", new { area = "" }, null)</li>
-					<li>@Html.ActionLink("Game Mode", "Mode", "Game", new { area = "" }, null)</li>
+					<li>@Html.ActionLink("New Game", "Index", "Game", new {area = ""}, null)</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Game Difficulty <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Easy</a></li>
+							<li><a href="#">Normal</a></li>
+							<li><a href="#">Hard</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Game Mode <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Arcade</a></li>
+							<li><a href="#">Story</a></li>
+							<li><a href="#">Mix</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
