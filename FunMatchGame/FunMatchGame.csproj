@@ -484,6 +484,7 @@
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\underscore.min.map" />
+    <None Include="Views\Game\Mode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

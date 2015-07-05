@@ -2,19 +2,25 @@
     '$scope', '$http', function($scope, $http) {
 
         var game = {
-            modes: ['Easy', 'Medium', 'Hard'],
+            levels: [{ id: 1, label: 'Easy' }, { id: 2, label: 'Normal' }, { id: 3, label: 'Hard' }],
+            level: 1,
             solved: false,
             rows: 2,
-            columns: 6,
+            columns: 4,
             getWidth: function() {
-                var size = game.columns / 6;
-                if (size < 1) return 'col-md-4';
-                else if (size > 1) return 'col-md-1';
-                else return 'col-md-2';
+                switch (game.level) {
+                case 1:
+                    return 'col-md-3';
+                default :
+                    return 'col-md-2';
+                }
             },
-            setMode: function(mode) {
-                switch (mode) {
-                case 'Easy':
+            getHeight: function(level) {
+
+            },
+            setMode: function(level) {
+                switch (level) {
+                case 1:
                     game.rows = 2;
                     game.columns = 4;
                     break;
@@ -24,7 +30,7 @@
                     break;
                 case 'Hard':
                     game.rows = 4;
-                    game.columns = 4;
+                    game.columns = 6;
                     break;
                 }
             }
