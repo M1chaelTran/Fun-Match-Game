@@ -2,9 +2,32 @@
     '$scope', '$http', function($scope, $http) {
 
         var game = {
+            modes: ['Easy', 'Medium', 'Hard'],
             solved: false,
-            rows: 3,
-            columns: 2,
+            rows: 2,
+            columns: 6,
+            getWidth: function() {
+                var size = game.columns / 6;
+                if (size < 1) return 'col-md-4';
+                else if (size > 1) return 'col-md-1';
+                else return 'col-md-2';
+            },
+            setMode: function(mode) {
+                switch (mode) {
+                case 'Easy':
+                    game.rows = 2;
+                    game.columns = 4;
+                    break;
+                case 'Medium':
+                    game.rows = 3;
+                    game.columns = 4;
+                    break;
+                case 'Hard':
+                    game.rows = 4;
+                    game.columns = 4;
+                    break;
+                }
+            }
         };
 
         $scope.game = game;
@@ -52,7 +75,7 @@
                 .union(angular.copy(cards))
                 .shuffle()
                 .groupBy(function(e, i) {
-                    return Math.floor(i / game.rows);
+                    return Math.floor(i / game.columns);
                 })
                 .toArray()
                 .value();
