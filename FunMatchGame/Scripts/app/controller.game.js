@@ -105,8 +105,8 @@
         };
 
         $scope.$on('$locationChangeSuccess', function() {
-            setDifficulty($location.search().difficulty);
-            setMode($location.search().mode);
+            setDifficulty($location.search().difficulty || 1);
+            setMode($location.search().mode || 1);
 
             createDeck();
         });
