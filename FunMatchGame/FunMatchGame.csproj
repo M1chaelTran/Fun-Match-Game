@@ -247,6 +247,7 @@
     </Compile>
     <Compile Include="Maps\CardMaps.cs" />
     <Compile Include="Models\AbcCardJsonModel.cs" />
+    <Compile Include="Repositories\AustralianWarMemorialDataModel.cs" />
     <Compile Include="Repositories\ISetRepository.cs" />
     <Compile Include="Repositories\SetRepository.cs" />
     <Compile Include="Services\CardService.cs" />
