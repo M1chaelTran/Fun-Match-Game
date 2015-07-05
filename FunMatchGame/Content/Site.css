@@ -22,10 +22,10 @@ textarea { max-width: 280px; }
     -o-perspective: 800px;
     -webkit-perspective: 800px;
     height: 200px;
+    margin: 10px;
     perspective: 800px;
     position: relative;
-    width: 200px;
-    margin: 10px;
+    width: 160px;
 }
 
 .card {
@@ -56,15 +56,13 @@ textarea { max-width: 280px; }
     -ms-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    object-fit: contain;
     backface-visibility: hidden;
     display: block;
     height: 100%;
+    object-fit: cover;
     position: absolute;
     width: 100%;
 }
-
-
 
 .card .back {
     -moz-transform: rotateY(180deg);

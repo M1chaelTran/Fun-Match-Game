@@ -7,7 +7,7 @@
     <table>
         <tbody>
             <tr data-ng-repeat="deck in decks" class="deck">
-                <td data-ng-repeat="card in deck" ng-click="try(card)">
+                <td data-ng-repeat="card in deck" ng-click="play(card)">
                     <div class="deck">
                         <div class="card" data-ng-class="{flipped: card.flipped}">
                             <img class="front img-thumbnail" src="~/Content/back.png">

@@ -23,7 +23,8 @@
                 "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
-                "~/Scripts/underscore.js"));
+                "~/Scripts/underscore.js",
+                "~/Scripts/agency.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/app.js",
@@ -33,6 +34,7 @@
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
+                "~/Content/agency.css",
                 "~/Content/site.css"));
         }
     }

@@ -1,62 +1,61 @@
 ﻿angular.module('controller').controller('game', [
-    '$scope', '$http', function ($scope, $http) {
+    '$scope', '$http', function($scope, $http) {
 
-        function getCards(size) {
-
+        var game = {
+            solved: false,
+            rows: 3,
+            columns: 2,
         };
 
-        $scope.arrangeCard = function(index) {
+        $scope.game = game;
 
+        var flip = function() {
+            _.forEach(arguments, function(card) {
+                if (card) card.flipped = !card.flipped;
+            });
         };
 
-        var flip = function(card) {
-            if (card) card.flipped = !card.flipped;
-        };
-
-        var reset = function() {
-            flip($scope.first);
-            flip($scope.second);
-
-            $scope.first = null;
-            $scope.second = null;
-        };
-
-        $scope.try = function(card) {
+        $scope.play = function(card) {
             if (card.solved) return;
-
-            if ($scope.first && $scope.second) {
-                flip($scope.first);
-                flip($scope.second);
-
-                $scope.first = null;
-                $scope.second = null;
-
-                return;
-            }
 
             var first = $scope.first;
             var second = $scope.second;
 
-            if (!first) {
-                $scope.first = first = card;
-            } else if (card != first && card != second) {
-                $scope.second = second = card;
+            if (first) {
+                if (card == first) return;
+                if (second) {
+                    if (card == second) return;
+
+                    $scope.first = card;
+                    $scope.second = null;
+
+                    flip(first, second, card);
+                } else {
+                    $scope.second = second = card;
+
+                    if (first.id == second.id) {
+                        first.solved = second.solved = true;
+                        $scope.first = $scope.second = null;
+                    }
+
+                    flip(second);
+                }
             } else {
-                return;
-            }
-
-            flip(card);
-
-            if (first && second && first.id == second.id) {
-                first.solved = true;
-                second.solved = true;
-                $scope.first = null;
-                $scope.second = null;
+                $scope.first = first = card;
+                flip(first);
             }
         };
 
-        $http.get('api/games/sets/1/cards/4').success(function(cards) {
-            $scope.decks = [_.shuffle(cards), _.shuffle(angular.copy(cards))];
+        $http.get('api/games/sets/1/cards/' + (game.rows * game.columns) / 2).success(function(cards) {
+            // duplicate cards to make pairs and create deck;
+            $scope.decks = _.chain(cards)
+                .union(angular.copy(cards))
+                .shuffle()
+                .groupBy(function(e, i) {
+                    return Math.floor(i / game.rows);
+                })
+                .toArray()
+                .value();
         });
     }
 ]);
