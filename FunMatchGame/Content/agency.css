@@ -321,7 +321,7 @@ header .intro-text .intro-heading {
 }
 
 section {
-    padding: 100px 0;
+
 }
 
 section h2.section-heading {
@@ -337,12 +337,6 @@ section h3.section-subheading {
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
-}
-
-@media(min-width:768px) {
-    section {
-        padding: 150px 0;
-    }
 }
 
 .service-heading {
@@ -717,7 +711,6 @@ section#contact .text-danger {
 }
 
 footer {
-    padding: 25px 0;
     text-align: center;
 }
 

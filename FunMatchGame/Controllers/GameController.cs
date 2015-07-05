@@ -8,5 +8,10 @@ namespace FunMatchGame.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult Mode()
+		{
+			return View();
+		}
 	}
 }
