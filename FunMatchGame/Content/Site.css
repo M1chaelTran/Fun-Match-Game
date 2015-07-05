@@ -22,11 +22,11 @@ textarea { max-width: 280px; }
     -o-perspective: 800px;
     -webkit-perspective: 800px;
     height: 200px;
+    margin-bottom: 2px;
+    margin-top: 2px;
     perspective: 800px;
     position: relative;
     width: 160px;
-    margin-bottom: 2px;
-    margin-top: 2px;
 }
 
 .card {
@@ -38,7 +38,9 @@ textarea { max-width: 280px; }
     -o-transition: -o-transform 1s;
     -webkit-transform-style: preserve-3d;
     -webkit-transition: -webkit-transform 1s;
+    display: block;
     height: 100%;
+    margin: 0px auto;
     transform-style: preserve-3d;
     transition: transform 1s;
     width: 100%;

@@ -1,9 +1,9 @@
 ﻿angular.module('controller').controller('game', [
-    '$scope', '$http', function($scope, $http) {
+    '$scope', '$http', '$location', function($scope, $http, $location) {
+
 
         var game = {
             levels: [{ id: 1, label: 'Easy' }, { id: 2, label: 'Normal' }, { id: 3, label: 'Hard' }],
-            level: 1,
             solved: false,
             rows: 2,
             columns: 4,
@@ -11,28 +11,12 @@
                 switch (game.level) {
                 case 1:
                     return 'col-md-3';
-                default :
+                default:
                     return 'col-md-2';
                 }
             },
             getHeight: function(level) {
 
-            },
-            setMode: function(level) {
-                switch (level) {
-                case 1:
-                    game.rows = 2;
-                    game.columns = 4;
-                    break;
-                case 'Medium':
-                    game.rows = 3;
-                    game.columns = 4;
-                    break;
-                case 'Hard':
-                    game.rows = 4;
-                    game.columns = 6;
-                    break;
-                }
             }
         };
 
@@ -75,16 +59,42 @@
             }
         };
 
-        $http.get('api/games/sets/1/cards/' + (game.rows * game.columns) / 2).success(function(cards) {
-            // duplicate cards to make pairs and create deck;
-            $scope.decks = _.chain(cards)
-                .union(angular.copy(cards))
-                .shuffle()
-                .groupBy(function(e, i) {
-                    return Math.floor(i / game.columns);
-                })
-                .toArray()
-                .value();
+        var createDeck = function() {
+            $http.get('api/games/sets/1/cards/' + (game.rows * game.columns) / 2).success(function(cards) {
+                // duplicate cards to make pairs and create deck;
+                $scope.decks = _.chain(cards)
+                    .union(angular.copy(cards))
+                    .shuffle()
+                    .groupBy(function(e, i) {
+                        return Math.floor(i / game.columns);
+                    })
+                    .toArray()
+                    .value();
+            });
+        };
+        var setDifficulty = function(level) {
+            switch (level) {
+            case 3:
+                game.rows = 4;
+                game.columns = 6;
+                break;
+            case 2:
+                game.rows = 3;
+                game.columns = 4;
+                break;
+            default:
+                game.rows = 2;
+                game.columns = 4;
+                break;
+            }
+        };
+        var setMode = function(mode) {
+        };
+        $scope.$on('$locationChangeSuccess', function() {
+            setDifficulty($location.search().difficulty);
+            setMode($location.search().mode);
+
+            createDeck();
         });
     }
 ]);

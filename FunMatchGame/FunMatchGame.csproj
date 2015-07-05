@@ -419,6 +419,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\memorytime - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\memorytime - Web Deploy.pubxml" />
+    <Content Include="Scripts\app\controller.menu.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js">
       <DependentUpon>jquery-2.1.4.js</DependentUpon>
     </None>
