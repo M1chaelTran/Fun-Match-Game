@@ -7,17 +7,7 @@
             solved: false,
             rows: 2,
             columns: 4,
-            getWidth: function() {
-                switch (game.level) {
-                case 1:
-                    return 'col-md-3';
-                default:
-                    return 'col-md-2';
-                }
-            },
-            getHeight: function(level) {
 
-            }
         };
 
         $scope.game = game;
@@ -72,6 +62,27 @@
                     .value();
             });
         };
+
+        $scope.getWidth = function() {
+            switch (game.level) {
+            case 1:
+                return 'col-md-3';
+            default:
+                return 'col-md-2';
+            }
+        };
+
+        $scope.getHeight = function() {
+            switch (game.level) {
+                case 3:
+                    return 'small';
+                case 2:
+                    return 'medium';
+                default:
+                    return 'large';
+            }
+        };
+
         var setDifficulty = function(level) {
             switch (level) {
             case 3:
@@ -87,9 +98,12 @@
                 game.columns = 4;
                 break;
             }
+            game.level = level;
         };
+
         var setMode = function(mode) {
         };
+
         $scope.$on('$locationChangeSuccess', function() {
             setDifficulty($location.search().difficulty);
             setMode($location.search().mode);

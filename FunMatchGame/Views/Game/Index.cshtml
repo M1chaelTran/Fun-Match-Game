@@ -5,9 +5,9 @@
 }
 <table data-ng-controller="game" class="col-md-12">
     <tbody>
-        <tr data-ng-repeat="deck in decks" class="deck">
-            <td data-ng-repeat="card in deck" data-ng-class="game.getWidth()">
-                <div class="deck" ng-click="play(card)">
+        <tr data-ng-repeat="deck in decks" >
+            <td data-ng-repeat="card in deck" data-ng-class="getWidth()">
+                <div class="deck" ng-click="play(card)" data-ng-class="getHeight()">
                     <div class="card" data-ng-class="{flipped: card.flipped}">
                         <img class="front img-thumbnail" src="~/Content/back.png">
                         <img class="back img-thumbnail" data-ng-src="{{card.imageUrl}}">
